@@ -50,7 +50,7 @@ app.get('/exceptions',function(req,res){
 
 
 app.post('/exceptions',function(req,res){
-	console.log('check:',req.body);
+	//console.log('check:',req.body);
 	if ( !req.body.exception ){
 		return;
 	}
