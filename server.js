@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var DBURL = "mongodb://su:welcome123@ds011158.mlab.com:11158/sample2";
 
+//mongodb://user:pawsword:host/dbname
+
 var ExceptionSchema = require('./models/exception');
 
 var dbconnection = mongoose.createConnection( DBURL , { server:{ poolSize:2 }, db: { native_parser: true }}, function(err){
@@ -25,17 +27,18 @@ app.use(function (req, res, next) {
     next();
 });
 
-
 app.use(cookieParser()); 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })) ;
+app.use('/', express.static(__dirname + '/app') );
 
-app.get('/',function(req,res){
-	res.send('App Started!');
-});
+
+// app.get('/',function(req,res){
+// 	res.send('App Started!');
+// });
 
 app.get('/exceptions',function(req,res){
-	Exception.find({ }, function(err, results) {
+	Exception.find({}, function(err, results) {
 	  if (!err)
 		{
 		  res.json( results );
@@ -47,6 +50,7 @@ app.get('/exceptions',function(req,res){
 
 
 app.post('/exceptions',function(req,res){
+	console.log('check:',req.body);
 	if ( !req.body.exception ){
 		return;
 	}
