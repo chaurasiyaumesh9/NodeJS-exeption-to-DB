@@ -14,10 +14,10 @@ var http_2 = require("@angular/http");
 require("rxjs/add/operator/map");
 require("rxjs/add/operator/do");
 var ExceptionService = (function () {
+    //private _serviceurl='http://localhost:3000/exceptions';
     function ExceptionService(_http) {
         this._http = _http;
-        //private _serviceurl='https://meanstack-exceptiontodb.herokuapp.com/exceptions';
-        this._serviceurl = 'http://localhost:3000/exceptions';
+        this._serviceurl = 'https://meanstack-exceptiontodb.herokuapp.com/exceptions';
     }
     ExceptionService.prototype.getExceptions = function () {
         return this._http.get(this._serviceurl)
