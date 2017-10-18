@@ -28,4 +28,30 @@
 	      </div>
 	    </div>
 	  </form>
+
+	  <hr class="divider">
+
+	  <table class="table">
+	  	<thead>
+	  		<tr>
+	  			<th>Error Code</th>
+	  			<th>Error Name</th>
+	  			<th>Error Message</th>
+	  		</tr>
+	  	</thead>
+	  	<tbody>
+	  		<tr *ngFor="let ex of iexceptions">
+	  			<td>
+	  				{{ex.code}}
+	  			</td>
+	  			<td>
+	  				{{ex.name}}
+	  			</td>
+	  			<td>
+	  				{{ex.message}}
+	  			</td>
+	  		</tr>
+	  		
+	  	</tbody>
+	  </table>
 </div>

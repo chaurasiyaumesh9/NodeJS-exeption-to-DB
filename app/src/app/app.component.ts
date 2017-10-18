@@ -18,21 +18,26 @@ export   class   AppComponent  {
    constructor(private _exception: ExceptionService) {   }
    
    ngOnInit() : void {
-      this._exception.getExceptions()
+      this.fetchList();
+   }
+
+   private fetchList(){
+    this._exception.getExceptions()
       .subscribe(iexceptions => this.iexceptions = iexceptions);
    }
 
     addException(): void {
-     this._exception.addException(this.exception)
-       .subscribe(exception => this.exception = exception);
+     this._exception.addException(this.exception);
+     this.fetchList();
        this.reset(); 
     }
 
+
     private reset() {
-           this.exception.name = null;  
-           this.exception.code = null;
-           this.exception.message = null;
-         }  
+       this.exception.name = null;  
+       this.exception.code = null;
+       this.exception.message = null;
+     }  
 
    
 }

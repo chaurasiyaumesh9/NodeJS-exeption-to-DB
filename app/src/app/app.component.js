@@ -18,14 +18,16 @@ var AppComponent = (function () {
         this.exception = new exception_1.IException();
     }
     AppComponent.prototype.ngOnInit = function () {
+        this.fetchList();
+    };
+    AppComponent.prototype.fetchList = function () {
         var _this = this;
         this._exception.getExceptions()
             .subscribe(function (iexceptions) { return _this.iexceptions = iexceptions; });
     };
     AppComponent.prototype.addException = function () {
-        var _this = this;
-        this._exception.addException(this.exception)
-            .subscribe(function (exception) { return _this.exception = exception; });
+        this._exception.addException(this.exception);
+        this.fetchList();
         this.reset();
     };
     AppComponent.prototype.reset = function () {
