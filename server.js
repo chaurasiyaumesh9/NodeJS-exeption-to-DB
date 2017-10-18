@@ -75,7 +75,7 @@ app.post('/exceptions',function(req,res){
 // });
 
 
-var port = process.env.PORT || 8010;
+var port = process.env.PORT || 3000;
 
 app.listen(port, function(){
 	console.log('listening @ port : ' + port);

@@ -1,0 +1,31 @@
+
+<div class="container wrapper">
+	<h3 class="title">Insert New Record </h3>
+	<hr class="divider">
+	<form class="form-horizontal" action="/" (ngSubmit)="addException()" >
+	    <div class="form-group">
+	      <label class="control-label col-sm-2" for="name"> Error Title </label>
+	      <div class="col-sm-6">
+	        <input type="text" class="form-control" [(ngModel)]="exception.name" [ngModelOptions]="{standalone: true}">
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="control-label col-sm-2" for="code"> Error Code </label>
+	      <div class="col-sm-6">          
+	        <input type="text" class="form-control" id="code" placeholder="Enter password" name="code" [(ngModel)]="exception.code" [ngModelOptions]="{standalone: true}">
+	      </div>
+	    </div>
+	     <div class="form-group">
+	      <label class="control-label col-sm-2" for="message"> Message body </label>
+	      <div class="col-sm-6">          
+	        <input type="text" class="form-control" id="message" placeholder="Enter password" name="message" [(ngModel)]="exception.message" [ngModelOptions]="{standalone: true}">
+	      </div>
+	    </div>
+	   
+	    <div class="form-group">        
+	      <div class="col-sm-offset-2 col-sm-10">
+	        <button type="submit" class="btn btn-default">Submit</button>
+	      </div>
+	    </div>
+	  </form>
+</div>
